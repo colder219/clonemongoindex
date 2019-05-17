@@ -6,8 +6,8 @@ for dbs in `cat dblist.txt`
 do
 	# 每个实例输出之前清空之前生成的创建索引语句
  	rm -rf indexs/*
-	odb=`echo $dbs|/usr/bin/cut -d , -f 1`
-	ndb=`echo $dbs|/usr/bin/cut -d , -f 2`
+	olddb=`echo $dbs|/usr/bin/cut -d , -f 1`
+	newdb=`echo $dbs|/usr/bin/cut -d , -f 2`
 
  	mongo $olddb -quiet finddb.js  > dbs.txt
  	
